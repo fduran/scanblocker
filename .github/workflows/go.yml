@@ -28,14 +28,9 @@ jobs:
     - name: Test
       run: go test -v ./...
 
-  golangci:
-    name: lint
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: golangci-lint
-        continue-on-error: true
-        uses: golangci/golangci-lint-action@v2
-        with:
-          # Required
-          version: v1.38
+    - name: golangci-lint
+      continue-on-error: true
+      uses: golangci/golangci-lint-action@v2
+      with:
+        # Required
+        version: v1.38
