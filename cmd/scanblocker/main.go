@@ -27,7 +27,7 @@ type Config struct {
 
 func setOptions() Config {
 	config := Config{
-		device:      "eth0",  // currently only param as option  
+		device:      "eth0", // currently only param as option
 		maxPorts:    3,
 		scanSeconds: 60,
 	}
