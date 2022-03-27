@@ -28,9 +28,18 @@ jobs:
     - name: Test
       run: go test -v ./...
 
-    - name: golangci-lint
-      continue-on-error: true
-      uses: golangci/golangci-lint-action@v2
-      with:
-        # Required
-        version: v1.38
+  golangci:
+    name: lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install libpcap
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libpcap-dev      
+      - name: golangci-lint
+        continue-on-error: true
+        uses: golangci/golangci-lint-action@v2
+        with:
+          # Required
+          version: v1.38
