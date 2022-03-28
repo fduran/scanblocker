@@ -13,13 +13,6 @@ BIN := scanblocker
 # target
 TARGET := scanblocker
 
-# use git tags to set the version string
-#VERSION := $(shell git describe --tags --always --dirty)
-
-# manual simver value to set the version string
-VERSION := 1.0.0
-# key is to keep docker image tag and git version in sync
-
 SRC_DIRS := cmd# pkg
 
 #ALL_PLATFORMS := linux/amd64
@@ -60,7 +53,8 @@ lint:
 	golangci-lint run --enable-all
 
 image:
-	docker build -t $(REPO)/$(TARGET):$(VERSION) .
+	docker build -t $(REPO)/$(TARGET) .
+	docker tag $(REPO)/$(TARGET) $(TARGET)
 
 # see also https://goreleaser.com/
 release: image

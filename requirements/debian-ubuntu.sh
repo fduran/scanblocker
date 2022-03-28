@@ -34,9 +34,6 @@ sudo apt install -y build-essential
 # to get golang dependencies and code
 sudo apt install -y git
 
-# only thing special for our code: need these headers
-sudo apt install -y libpcap-dev
-
 # to optionally use Makefile
 sudo apt install -y make
 
